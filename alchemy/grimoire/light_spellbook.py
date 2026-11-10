@@ -1,4 +1,4 @@
-from .light_validator import validate_ingredients, MAGIC
+MAGIC = ["earth", "air", "fire", "water"]
 
 
 def light_spell_allowed_ingredients() -> list[str]:
@@ -6,6 +6,7 @@ def light_spell_allowed_ingredients() -> list[str]:
 
 
 def light_spell_record(spell_name: str, ingredients: str) -> str:
+    from .light_validator import validate_ingredients
     result = validate_ingredients(ingredients)
     if "VALID" in result and "INVALID" not in result:
         return f"Spell recorded: {spell_name} ({ingredients} - VALID)"
